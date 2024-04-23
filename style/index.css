@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  list-style: none;
+  text-decoration: none;
+}
+
+body {
+  background-color: #e8e8e8;
+}
+
+#mainContent {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#itemsList {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 2rem;
+}
+
+.item-card {
+  max-width: 24rem;
+  overflow: hidden;
+  border-width: 1px;
+  border-radius: 0.4rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.2), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.item-card_header {
+  position: relative;
+}
+
+.item-card_header > img {
+  width: 100%;
+  min-height: 16rem;
+  border-radius: 0.4rem 0.4rem 0 0;
+  object-fit: cover;
+}
+
+.item-card_info {
+  padding: 0.5rem 1.25rem;
+}
+
+.item-card_info > h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.75rem;
+}
+
+.item-card_info > h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  color: #e21d4b;
+}
+
+.item-card_footer {
+  display: flex;
+  justify-content: center;
+  margin-block: 1.25rem;
+}
+.addToCartButton {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.item-card_footer > button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 7.5rem;
+  height: 2.25rem;
+  padding: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+  outline: none;
+  font-weight: 500;
+  background-color: #e21d4b;
+  color: white;
+  transition: background-color 0.1s ease-in;
+  cursor: pointer;
+}
+
+.item-card_footer > button:focus {
+  ring: 1px solid rgba(226, 29, 75, 0.7);
+}
+
+.item-card_footer > button:hover {
+  background-color: rgba(226, 29, 75, 0.7);
+}
+
+/* Toast animation styling */
+.toast-container {
+  display: inline-block;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 1.75rem;
+  width: 20rem;
+  margin-inline: auto;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: rgb(226, 29, 75);
+  visibility: hidden;
+  z-index: 1000;
+}
+.toast-container > p {
+  color: white;
+  font-size: 1rem;
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToTop {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+.toast-show {
+  visibility: visible;
+  animation: slideInFromBottom 0.5s ease forwards,
+    slideOutToTop 0.5s ease forwards 3.5s;
+}
